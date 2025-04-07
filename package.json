@@ -1,0 +1,27 @@
+{
+  "name": "masterquizapp",
+  "version": "1.0.0",
+  "description": "MasterQuizAPP is a full-stack quiz application designed to deliver a seamless and engaging quiz experience for users. Built with a modern tech stack, it allows users to take quizzes, view scores instantly, and track their performance. Whether you're a student, a teacher, or just someone who loves testing knowledge, MasterQuizAPP is built for you!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmbrishUP53/MasterQuizAPP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AmbrishUP53/MasterQuizAPP/issues"
+  },
+  "homepage": "https://github.com/AmbrishUP53/MasterQuizAPP#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.13.2"
+  }
+}
