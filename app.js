@@ -16,3 +16,10 @@ main().then(res => console.log("connection was successful.")).catch((err)=> cons
 async function main(){
     await Mongoose.connect(MongooseURL);
 }
+app.get("/" , (req , res)=>{
+    res.render("Home.ejs");
+})
+
+app.listen(8080 , ()=>{
+    console.log(`app is listening at port 8080`);
+})
