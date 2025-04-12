@@ -41,7 +41,7 @@ git clone https://github.com/AmbrishUP53/MasterQuizAPP
 ## Contributing
 
 Contributions are welcome!
-If you'd like to contribute:
+If you’d like to contribute:
 1. Fork the repo
 
 2. Create a new branch
@@ -82,3 +82,10 @@ Distributed under the DDUGU License.
 
    Email: ramdayal2484@gmail.com
    
+   
+
+
+
+
+
+
