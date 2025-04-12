@@ -3,6 +3,8 @@ const app = express();
 const path = require("path");
 const Mongoose = require("mongoose");
 const Quizes = require("./models/modelSchema");
+const wrapAsync = require("./utils/wrapAsync");
+const ExpressEroor = require("./utils/ExpressError");
 
 app.set("view-engine" , "ejs");
 app.set("views" ,path.join(__dirname , "/views") );
@@ -18,6 +20,13 @@ async function main(){
 }
 app.get("/" , (req , res)=>{
     res.render("Home.ejs");
+})
+
+app.get("/start" , (req , res , next)=>{
+    res.render("start.ejs")
+})
+app.use((err , req , res ,next) =>{
+    res.send("something went wrong");
 })
 
 app.listen(8080 , ()=>{

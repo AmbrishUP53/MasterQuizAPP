@@ -1,36 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Quiz</title>
-    <link rel="stylesheet" href="./css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Master</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #eef7f9;
+      color: #1a1a1a;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      padding: 50px;
+    }
+
+    .left {
+      max-width: 50%;
+      z-index: 2;
+    }
+
+    .logo {
+      font-size: 50px;
+      font-weight: bold;
+      color: #2e00a3;
+      line-height: 1;
+    }
+
+    .logo .fonts {
+      font-size: 40px;
+      display: block;
+    }
+
+    .title {
+      font-size: 30px;
+      font-weight: bold;
+      margin-top: 40px;
+      color: #1a1a1a;
+    }
+
+    .description {
+      font-size: 16px;
+      color: #5a5a89;
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    .begin-button {
+      background-color: #3d00ff;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 35px;
+      text-decoration: none;
+    }
+
+    .right {
+      position: relative;
+      width: 50%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .letters {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .letters span {
+      position: absolute;
+      font-size: 32px;
+      font-weight: bold;
+      color: hsl(calc(var(--i) * 36), 70%, 50%);
+      animation: floatUp 8s linear infinite;
+      left: calc(var(--i) * 10%);
+      top: 100%;
+      transform: rotate(calc(var(--i) * 20deg));
+      animation-delay: calc(var(--i) * -0.5s);
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
-    <%- include("./includes/navbar.ejs"); %>
-    
-    <main class="main-section">
-        <div class="left">
-            <img src="character.png" alt="Quiz Character" class="character-img">
-        </div>
-        <div class="right">
-            <h1>Crush the Quiz<br>Own the Knowledge</h1>
-            <p>Dive into the ultimate battleground of brains. <br>It's fun, it's fierce, and it's where smart wins out.<br><b>Are you up for the game?</b></p>
-            <button onclick="startQuiz()">Start</button>
-        </div>
-    </main>
-
-    
-    <section class="rewards">
-        <h2>Your Rewards</h2>
-        <div class="icons">
-            <img src="" alt="Reward 1">
-            <img src="" alt="Reward 2">
-            <img src="" alt="Reward 3">
-            <img src="" alt="Reward 4">
-            <img src="" alt="Reward 5">
-            <img src="" alt="Reward 6">
-        </div>
-    </section>
+  <div class="container">
+    <div class="left">
+      <h1 class="logo">Quiz<br><span class="fonts">Master</span></h1>
+      <h2 class="title">Do you know your Arial<br>from your Helvetica?</h2>
+      <p class="description">
+        We’ve slightly altered the font that appears on 10 famous<br>
+        logos and put them next to their legitimate counterparts. Can<br>
+        you tell the difference between the bona fides and the<br>
+        phoneys?
+      </p>
+      <a href="/start" class="begin-button">Begin</a>
+    </div>
+    <div class="right">
+      <div class="letters">
+        <span style="--i:1;">A</span>
+        <span style="--i:2;">B</span>
+        <span style="--i:3;">C</span>
+        <span style="--i:4;">D</span>
+        <span style="--i:5;">E</span>
+        <span style="--i:6;">F</span>
+        <span style="--i:7;">G</span>
+        <span style="--i:8;">H</span>
+        <span style="--i:9;">I</span>
+        <span style="--i:10;">J</span>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

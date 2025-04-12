@@ -1,5 +1,9 @@
 const { default: mongoose, Schema } = require("mongoose");
 let QuizSchema = mongoose.Schema({
+    category :{
+        type : String,
+        required : true,
+    },
     question :{
         type : String ,
         required : true ,
@@ -8,22 +12,11 @@ let QuizSchema = mongoose.Schema({
         type : [],
         required : true ,
     },
-    correct_option : {
+    answer : {
         type : String ,
         required : true ,
     },
-    explanation : {
-        type : String,
-        required : true ,
-    },
-    category :{
-        type : String,
-        required : true,
-    },
-    difficulty : {
-        type : String,
-        default : "easy"
-    }
+   
 })
 
 let Quizes = mongoose.model("Quizes" , QuizSchema);
