@@ -25,6 +25,18 @@ app.get("/" , (req , res)=>{
 app.get("/start" , (req , res , next)=>{
     res.render("start.ejs")
 })
+
+//Select category route
+app.get("/select" , (req , res , next)=>{
+    if(req.query.text){
+        let category = req.query.text;
+        res.send(category)
+    }
+    else{
+        res.render("index.ejs");
+    }
+})
+
 app.use((err , req , res ,next) =>{
     res.send("something went wrong");
 })
