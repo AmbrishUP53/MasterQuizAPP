@@ -9,7 +9,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Georgia', serif;
-      background-color: #eef7f9;
+      background: linear-gradient(to bottom right, #d0eefd, #ffffff);
       overflow: hidden;
     }
 
@@ -18,21 +18,22 @@
       font-size: 28px;
       font-weight: bold;
       animation: floatDown 10s linear infinite;
-      color: hsl(var(--hue), 70%, 50%);
-      opacity: 0.8;
+      color: hsl(var(--hue), 80%, 45%);
+      opacity: 0.7;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
     }
 
     @keyframes floatDown {
       0% {
-        transform: translateY(-120vh) rotate(0deg);
-        opacity: 1;
+        transform: translateY(-120vh) rotate(0deg) scale(0.8);
+        opacity: 0;
       }
       30% {
         opacity: 1;
       }
       100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 1;
+        transform: translateY(120vh) rotate(720deg) scale(1.2);
+        opacity: 0;
       }
     }
 
@@ -66,18 +67,18 @@
       background-color: white;
       padding: 20px 60px;
       border-radius: 15px;
-      text-decoration: none;
       font-size: 22px;
       font-weight: bold;
       color: #2e00a3;
       border: none;
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
+      transition: transform 0.2s, background-color 0.3s;
     }
 
     .btn:hover {
       transform: scale(1.05);
+      background-color: #f0f0ff;
     }
 
     .or {
@@ -98,13 +99,29 @@
       margin-left: 10px;
       cursor: pointer;
     }
+
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 40px;
+      }
+      .logo span {
+        font-size: 30px;
+      }
+      .btn {
+        font-size: 18px;
+        padding: 15px 40px;
+      }
+      .or {
+        font-size: 20px;
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- Floating Letters -->
   <script>
-    const letters = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split('');
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
     for (let i = 0; i < 30; i++) {
       const letter = document.createElement('span');
       letter.className = 'floating-letter';
@@ -116,14 +133,15 @@
     }
   </script>
 
+
   <!-- Main Content -->
   <div class="container">
     <div class="logo">Quiz<br><span>Master</span></div>
 
     <div class="button-box">
-      <a href="/random?text=Random" class="btn">Random</a>
+      <a style="text-decoration: none;" href="/random?text=Random" class="btn">Random</a>
       <div class="or">Or</div>
-      <a href="/select" class="btn">Select a Category</a>
+      <a style="text-decoration: none;" href="/select" class="btn">Select a Category</a>
     </div>
   </div>
 
