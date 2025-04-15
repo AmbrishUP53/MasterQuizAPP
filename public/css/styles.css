@@ -40,7 +40,7 @@
     color: #6400ff;
   }
   
-  .score {
+  .count {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 15px;
@@ -99,6 +99,20 @@
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .submit-btn{
+    margin-top: 30px;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #5e00ff;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    display: none;
+    transition: background-color 0.3s ease, transform 0.2s ease; 
   }
   
   .next-btn:hover {

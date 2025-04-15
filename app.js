@@ -36,8 +36,6 @@ app.get("/api/quizes" , async(req , res )=>{
         
         let category = "history"
         let data = await Quizes.find();
-        console.log(data)
-        console.log("category : ", req.query.category)
         res.json(data);
     }catch(err){
         throw new ExpressEroor(500 , "quizes are not found")
@@ -53,6 +51,10 @@ app.get("/select" , (req , res , next)=>{
     else{
         res.render("index.ejs");
     }
+})
+
+app.get("/result" , (req , res)=>{
+    res.render("resultCard.ejs")
 })
 
 app.use((err , req , res ,next) =>{
