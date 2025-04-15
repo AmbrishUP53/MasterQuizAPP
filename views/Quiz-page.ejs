@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Quiz Master</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
   <div class="quiz-container">
     <div class="quiz-header">
       <h1><span class="quiz-title">Quiz</span> <span class="quiz-subtitle">Master</span></h1>
       <p class="score">Score: 0 / 1</p>
-      <h3>Which is a genuine font classification?</h3>
+      <h3 id="question-box">Which is a genuine font classification?</h3>
     </div>
 
     <div class="options">
@@ -22,6 +22,8 @@
     </div>
 
     <button class="next-btn">Next Question</button>
+
+    <script src="./javascript/quizScript.js"></script>
   </div>
 </body>
 </html>

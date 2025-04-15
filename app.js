@@ -26,6 +26,24 @@ app.get("/start" , (req , res , next)=>{
     res.render("start.ejs")
 })
 
+app.get("/quizes" , (req , res)=>{
+    res.render("Quiz-page.ejs")
+})
+
+// to send limited data from backend
+app.get("/api/quizes" , async(req , res )=>{
+    try{
+        
+        let category = "history"
+        let data = await Quizes.find();
+        console.log(data)
+        console.log("category : ", req.query.category)
+        res.json(data);
+    }catch(err){
+        throw new ExpressEroor(500 , "quizes are not found")
+    }
+})
+
 //Select category route
 app.get("/select" , (req , res , next)=>{
     if(req.query.text){
