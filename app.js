@@ -15,11 +15,19 @@ app.use(express.urlencoded({extended : true}));
 app.use(express.static(path.join(__dirname , "/public")))
 const MongooseURL = process.env.MongooseURL;
 
-main().then(res => console.log("connection was successful.")).catch((err)=> console.log("Database not connected" , err));
+// main().then(res => console.log("connection was successful.")).catch((err)=> console.log("Database not connected" , err));
 
-async function main(){
-    await Mongoose.connect(MongooseURL);
-}
+// async function main(){
+//     await Mongoose.connect(MongooseURL);
+// }
+
+Mongoose.connect(process.env.MongooseURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => console.log('MongoDB Connected'))
+  .catch((err) => console.log('Database not connected', err));
+
 app.get("/" , (req , res)=>{
     res.render("Home.ejs");
 })
@@ -78,3 +86,7 @@ app.use((err , req , res ,next) =>{
 app.listen(8080 , ()=>{
     console.log(`app is listening at port 8080`);
 })
+
+
+// git add .
+// git commit -m "change API_URL"
