@@ -49,10 +49,9 @@ async function addToHtml(data){
             }
         }
         document.querySelector(".count").innerHTML = `count : ${count++}/15`
-    }else if((count + 1 == 15)){
+    }else{
         submitPhase();
     }
-   
 }
 
 function UniqueRandomNumber(max , count){
@@ -71,10 +70,8 @@ function UniqueRandomNumber(max , count){
 }
 
 function submitPhase(){
-        document.querySelector(".submit-btn").style.display = "block";
-        document.querySelector(".next-btn").style.display = "none";
-
-
+    document.querySelector(".submit-btn").style.display = "block";
+    document.querySelector(".next-btn").style.display = "none";
     document.querySelector(".submit-btn").setAttribute("href" , `http://localhost:8080/quizes/result?score=${Score}`);
 }
 
