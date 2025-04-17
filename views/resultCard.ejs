@@ -86,11 +86,12 @@
 
   <div class="container">
     <h2>You got</h2>
-    <div class="score red">2 / 10</div> <!-- Change class to green, yellow, red based on score -->
+    <div class="score red"><span><%= score%></span>/15</div> <!-- Change class to green, yellow, red based on score -->
     <div class="message">Harder than you thought huh?!</div>
-    <button class="button">Challenge a friend</button>
-    <button class="button outline">Try again</button>
+    <!-- <button class="button">Challenge a friend</button> -->
+    <a  href="/select" class="button outline">Try again</a>
   </div>
 
 </body>
+<script src="../javascript/script.js"></script>
 </html>

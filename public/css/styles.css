@@ -39,7 +39,9 @@
   .quiz-subtitle {
     color: #6400ff;
   }
-  
+  .disabled{
+    pointer-events: none;
+  }
   .count {
     font-size: 1rem;
     font-weight: 600;
@@ -111,6 +113,7 @@
     border-radius: 10px;
     cursor: pointer;
     text-decoration: none;
+    align-self: center;
     display: none;
     transition: background-color 0.3s ease, transform 0.2s ease; 
   }

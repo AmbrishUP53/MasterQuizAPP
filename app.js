@@ -33,8 +33,7 @@ app.get("/quizes" , (req , res)=>{
 // to send limited data from backend
 app.get("/api/quizes" , async(req , res )=>{
     try{
-        
-        let category = "history"
+        let {category} = req.query;
         let data = await Quizes.find();
         res.json(data);
     }catch(err){
@@ -53,8 +52,10 @@ app.get("/select" , (req , res , next)=>{
     }
 })
 
-app.get("/result" , (req , res)=>{
-    res.render("resultCard.ejs")
+app.get("/quizes/result" , (req , res)=>{
+    let {score} = req.query;
+    console.log(score)
+    res.render("resultCard.ejs" , {score})
 })
 
 app.use((err , req , res ,next) =>{

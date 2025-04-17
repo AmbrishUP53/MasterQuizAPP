@@ -2,14 +2,15 @@ const questionBox = document.getElementById("question-box")
 const Alloptions = document.querySelectorAll(".option") ;
 let AllQuestions = []
 let RandomNum ;
-count = 1 ;
+let count = 1 ;
+let Score = 0;
 
 async function fetchData(){
     try{
         const response = await fetch("http://localhost:8080/api/quizes")
         let data = await response.json() ;
         AllQuestions = await data;
-        RandomNum = UniqueRandomNumber(data.length , 2);
+        RandomNum = UniqueRandomNumber(data.length , 15);
         addToHtml(AllQuestions);
     }catch(err){
         console.log("some error during loading the data");
@@ -20,11 +21,14 @@ Alloptions.forEach((opt) =>{
     opt.addEventListener("click" , (e)=>{
         choosenAnswer = e.target.innerText;
         if(e.target.classList.contains("Correct_answer")){
-            e.target.style.backgroundColor = "green"
+            e.target.style.backgroundColor = "green";
+            Score += 1;
+        }else{
+            e.target.style.backgroundColor = "red";
         }
+        document.querySelector(".options").classList.add("disabled");
     })
 })
-
 
 async function addToHtml(data){
     let idx =  RandomNum();
@@ -71,9 +75,15 @@ function submitPhase(){
     console.log("submit phase");
     document.querySelector(".submit-btn").style.display = "block";
     document.querySelector(".next-btn").style.display = "none";
+    document.querySelector(".submit-btn").setAttribute("href" , `http://localhost:8080/quizes/result?score=${Score}`);
 }
 
 document.querySelector(".next-btn").addEventListener("click" , ()=>{
+    document.querySelector(".options").classList.remove("disabled")
     addToHtml(AllQuestions)
 })
+
 fetchData()
+
+
+
