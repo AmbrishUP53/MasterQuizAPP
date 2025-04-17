@@ -27,15 +27,27 @@ app.get("/start" , (req , res , next)=>{
 })
 
 app.get("/quizes" , (req , res)=>{
-    res.render("Quiz-page.ejs")
+    res.render("RandomQuiz.ejs")
+})
+
+app.get("/quizes/questions", (req , res)=>{
+    let category = req.query.category;
+    res.render("Select-Quiz.ejs" , {category});
 })
 
 // to send limited data from backend
 app.get("/api/quizes" , async(req , res )=>{
     try{
-        let {category} = req.query;
-        let data = await Quizes.find();
-        res.json(data);
+        if(req.query.category){
+            let data;
+            let category = req.query.category;
+            data = await Quizes.find({category : {$regex: new RegExp(category , "i")}});
+            res.json(data);
+        }
+        else{
+            let data = await Quizes.find();
+            res.json(data);
+        }
     }catch(err){
         throw new ExpressEroor(500 , "quizes are not found")
     }
@@ -54,8 +66,7 @@ app.get("/select" , (req , res , next)=>{
 
 app.get("/quizes/result" , (req , res)=>{
     let {score} = req.query;
-    console.log(score)
-    res.render("resultCard.ejs" , {score})
+    res.render("resultCard.ejs" , {score});
 })
 
 app.use((err , req , res ,next) =>{

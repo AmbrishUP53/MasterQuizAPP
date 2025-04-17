@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Master</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <p class="chosenCategory" style="display: none;"><%= category %></p>
+  <div class="quiz-container">
+    <div class="quiz-header">
+      <h1><span class="quiz-title">Quiz</span> <span class="quiz-subtitle">Master</span></h1>
+      <p class="count">count: 1 / 15 </p>
+      <h3 id="question-box">Which is a genuine font classification?</h3>
+    </div>
+
+    <div class="options">
+      <div class="option">A <span>Diagonal</span></div>
+      <div class="option">B <span>Blackletter</span></div>
+      <div class="option">C <span>Roundface</span></div>
+      <div class="option">D <span>Simplistic</span></div>
+    </div>
+
+    <button class="next-btn">Next Question</button>
+    <a class="submit-btn" href="/quizes/result" >Submit</a>
+    <a class="hidden_score"></a>
+    <script src="../javascript/SelectedQuiz.js"></script>
+  </div>
+</body>
+</html>
