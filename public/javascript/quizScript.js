@@ -5,9 +5,10 @@ let RandomNum ;
 let count = 1 ;
 let Score = 0;
 
+let API_URL = "https://masterquizapp.onrender.com/" || "http://localhost:8080/"
 async function fetchData(){
     try{
-        const response = await fetch("http://localhost:8080/api/quizes")
+        const response = await fetch(`${API_URL}api/quizes`)
         let data = await response.json() ;
         AllQuestions = await data;
         RandomNum = UniqueRandomNumber(data.length , 15);
