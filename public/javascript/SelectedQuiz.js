@@ -8,7 +8,7 @@ let Score = 0;
 async function fetchData(){
     try{
         let category =  document.querySelector(".chosenCategory").innerText;
-        const response = await fetch(`http://localhost:8080/api/quizes?category=${category}`);
+        const response = await fetch(`https://masterquizapp.onrender.com/api/quizes?category=${category}`);
         let data = await response.json() ;
         AllQuestions = await data;
         RandomNum = UniqueRandomNumber(data.length , 15);
