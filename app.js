@@ -9,7 +9,8 @@ const Quizes = require("./models/modelSchema");
 const wrapAsync = require("./utils/wrapAsync");
 const ExpressEroor = require("./utils/ExpressError");
 
-app.set("view-engine" , "ejs");
+app.set("view engine", "ejs");
+
 app.set("views" ,path.join(__dirname , "/views") );
 app.use(express.urlencoded({extended : true}));
 app.use(express.static(path.join(__dirname , "/public")))
