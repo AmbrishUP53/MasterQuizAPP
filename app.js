@@ -18,11 +18,7 @@ const MongooseURL = process.env.MongooseURL;
 main().then(res => console.log("connection was successful.")).catch((err)=> console.log("Database not connected" , err));
 
 async function main(){
-    await Mongoose.connect(MongooseURL,{
-    userNewUrlParser : true,
-    userUnifiedTopology : true,
-
-});
+    await Mongoose.connect(MongooseURL);
 }
 app.get("/" , (req , res)=>{
     res.render("Home.ejs");
