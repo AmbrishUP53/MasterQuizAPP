@@ -76,7 +76,7 @@ function submitPhase(){
     console.log("submit phase");
     document.querySelector(".submit-btn").style.display = "block";
     document.querySelector(".next-btn").style.display = "none";
-    document.querySelector(".submit-btn").setAttribute("href" , `http://localhost:8080/quizes/result?score=${Score}`);
+    document.querySelector(".submit-btn").setAttribute("href" , `https://masterquizapp.onrender.com/quizes/result?score=${Score}`);
 }
 
 document.querySelector(".next-btn").addEventListener("click" , ()=>{
